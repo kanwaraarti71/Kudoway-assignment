@@ -1,0 +1,21 @@
+<div *ngIf="poll | async; let poll;">
+  <h2>{{title}}</h2>
+
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="row">
+        <label class="col-sm-2">Question:</label>
+        <div class="col-sm-9">{{poll.name}}</div>
+      </div>
+      <div class="row">
+        <label class="col-sm-2">Answer: </label>
+        <div class="col-sm-9">{{poll.answer}}</div>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary btn-sm m-1" routerLink="/polls">
+          <i class="fa fa-arrow-left"></i> Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

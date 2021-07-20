@@ -1,0 +1,41 @@
+<div *ngIf="poll">
+  <h2>{{title}}</h2>
+
+  <div>
+    <div class="row">
+      <div class="col-sm-9">
+        <form #frmpoll="ngForm" id="frmpoll" novalidate (ngSubmit)="onSave()" novalidate>
+          <div class="row">
+            <label class="control-label col-sm-3" for="txtName">Question:</label>
+            <div class="col-sm-5">
+              <input id="txtName"
+                     type="text"
+                     class="form-control"
+                     [(ngModel)]="poll.name"
+                     title="Name"
+                     placeholder="Enter a name ..." [ngModelOptions]="{standalone: true}" readonly
+              />
+            </div>
+          </div>
+          <div class="row">
+            <label class="control-label col-sm-3" for="txtName">Answer:</label>
+            <div class="col-sm-5">
+              <div>
+                <input type="radio" value="yes" name= "poll" [(ngModel)]="poll.answer" > Yes
+                <input type="radio" value="no" name="poll" [(ngModel)]="poll.answer" > No
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save poll</button>
+            <div class="btn-group m-2">
+              <button type="button" (click)="onBack()" class="btn btn-secondary btn-sm m-1">
+                <i class="fa fa-arrow-left"></i> Back
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>{{title}}</h2>
+  </div>
+  <div class="col-sm-6 align-bottom">
+    <button class="btn btn-primary pull-right ml-2" routerLink="/polls/create">Create new poll</button>
+    <button class="btn btn-primary pull-right" (click)="LogOut()">Log out</button>
+  </div>
+</div>
+<table class="table table-striped" style="text-align: left">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let poll of polls | async">
+    <td></td>
+    <td>{{poll.name}}</td>
+    <td>{{poll.answer}}</td>
+    <td>
+      <div class="btn-group">
+        <button routerLink="/polls/detail/{{poll.id}}" class="btn btn-secondary btn-sm m-1">
+          <i class="fa fa-search"></i>
+        </button>
+        <button routerLink="/polls/edit/{{poll.id}}" class="btn btn-info btn-sm m-1">
+          <i class="fa fa-pencil-square-o"></i>
+        </button>
+        <button (click)="delete(poll.id)" class="btn btn-danger btn-sm m-1">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
